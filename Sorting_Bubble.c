@@ -22,6 +22,14 @@ int main() {
     //arrayPrint(&h); //함수에 헤드노드의 주소를 입력해서 리턴 없이 연결리스트를 출력
     sort(&h); //함수에 헤드노드의 주소를 입력해서 리턴 없이 연결리스트를 정렬
     //arrayPrint(&h); //함수에 헤드노드의 주소를 입력해서 리턴 없이 연결리스트를 출력
+    listNode* tmp1 = h->first; //free 
+    listNode* tmp2 = tmp1;
+    while(tmp1 != NULL) {
+        tmp1 = tmp1->link;
+        free(tmp2);
+        tmp2 = tmp1;
+    }
+    free(h);
 }
 
 void readFile(headNode** head) { //헤드노드의 주소를 받아서 파일의 숫자로 연결리스트를 만드는 함수
